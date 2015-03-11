@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Magic Zoom: Multiple images</title>
+       
+        <!-- link to magiczoom.css file -->
+                <link href="magiczoom/magiczoom.css" rel="stylesheet" type="text/css" media="screen"/>
+                <!-- link to magiczoom.js file -->
+                <script src="magiczoom/magiczoom.js" type="text/javascript"></script>
+       
+    </head>
+    <body>
+       
+        <p>Zoom into many different images.  Each image can have its own settings.</p>
+       
+        <p><a name="dissolve">Dissolve effect</a></p>
+ 
+        <!-- define Magic Zoom -->
+        <a href="assets/img/portfolio/port01.jpg" class="MagicZoom" id="Zoomer" rel="selectors-effect-speed: 600" title="Blue Yamaha YZF-R1"><img src="images/r1-blue-2.jpg"/></a> <br/>
+ 
+ 
+        <!-- selector with own title -->
+        <a href="assets/img/portfolio/port01.jpg" rel="zoom-id:Zoomer;zoom-width:200px;zoom-height:200px;" rev="assets/img/portfolio/port01.jpg" title="Red Yahama YZF-R1"><img src="assets/img/portfolio/port01.jpg"/></a>
+ 
+         <!-- selector with own title -->
+        <a href="assets/img/portfolio/port02.jpg" rel="zoom-id:Zoomer;zoom-width:200px;zoom-height:200px;" rev="assets/img/portfolio/port02.jpg" title="Red Yahama YZF-R1"><img src="assets/img/portfolio/port02.jpg"/></a>
+ 
+         <!-- selector with own title -->
+        <a href="assets/img/portfolio/port03.jpg" rel="zoom-id:Zoomer;zoom-width:200px;zoom-height:200px;" rev="assets/img/portfolio/port03.jpg" title="Red Yahama YZF-R1"><img src="assets/img/portfolio/port03.jpg"/></a>
+ 
+ </body>
+ </html>

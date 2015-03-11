@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>
+</title>
+<body>
+Hello! <?php echo $_POST['name']?> ! Your USN is <?php echo $_POST['usn']?>
+<?php
+$con=mysqli_connect("localhost","root","root","db");
+if (mysqli_connect_errno()) {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+mysqli_query($con,"INSERT INTO tb VALUES ('$_POST["name"]','$_POST["usn"]')");
+mysqli_close($con);
+?>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<header><div class="header"><a href="2.php"><strong><u><em>BACK</em></u></strong></a>
+  <!-- end .header --></div></header>
+<title>Question Paper Generator Management System</title>
+
+<style type="text/css">
+
+body {
+
+    background: #E3F4FC;
+
+    font: normal 14px/30px Helvetica, Arial, sans-serif;
+
+    color: #2b2b2b;
+
+}
+
+a {
+
+    color:#898989;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    text-decoration:none;
+
+}
+
+a:hover {
+
+   color:#CC0033;
+
+}
+
+ 
+
+h1 {
+
+    font: bold 14px Helvetica, Arial, sans-serif;
+
+    color: #CC0033;
+
+}
+
+h2 {
+
+    font: bold 14px Helvetica, Arial, sans-serif;
+
+    color: #898989;
+
+}
+
+#container {
+
+   background: #CCC;
+
+    margin: 100px auto;
+
+    width: 945px;
+
+}
+
+#form           {padding: 20px 150px;}
+
+#form input     {margin-bottom: 20px;}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="container">
+
+<div id="form">
+
+
+<?php
+$allowedExts = array("gif", "jpeg", "jpg", "png");
+$temp = explode(".", $_FILES["file"]["name"]);
+$extension = end($temp);
+
+if ((($_FILES["file"]["type"] == "image/gif")
+|| ($_FILES["file"]["type"] == "image/jpeg")
+|| ($_FILES["file"]["type"] == "image/jpg")
+|| ($_FILES["file"]["type"] == "image/pjpeg")
+|| ($_FILES["file"]["type"] == "image/x-png")
+|| ($_FILES["file"]["type"] == "image/png"))
+&& ($_FILES["file"]["size"] < 20000000)
+&& in_array($extension, $allowedExts)) {
+  if ($_FILES["file"]["error"] > 0) {
+    echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
+  } else {
+    echo "Upload: " . $_FILES["file"]["name"] . "<br>";
+    echo "Type: " . $_FILES["file"]["type"] . "<br>";
+    echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
+    echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
+    if (file_exists("upload/" . $_FILES["file"]["name"])) {
+      echo $_FILES["file"]["name"] . " already exists. ";
+    } else {
+   
+      move_uploaded_file($_FILES["file"]["name"],
+      "upload/" . $_FILES["file"]["name"]);
+      echo "upload/" . $_FILES["file"]["name"];
+      echo "<br/>";
+      echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
+    }
+  }
+} else {
+  echo "Invalid file";
+}
+?>
+</div>
+</div>
+</body>
+</html>
